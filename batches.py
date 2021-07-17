@@ -9,7 +9,7 @@ class Batches(db.Model):
     batch_start = db.Column(db.DateTime , nullable=False)
     batch_end = db.Column(db.DateTime , nullable=False)
     confirmed_at = db.Column(db.DateTime, nullable=False,default= datetime.utcnow)
-    skill_fk = db.Column(db.Integer, db.ForeignKey('skill.id'),nullable=False)
+    skill_fk = db.Column(db.Integer, db.ForeignKey('skills.id'),nullable=False)
     courses = db.relationship('Courses', secondary='batches_courses' ,backref=db.backref('batches', lazy=True))
 
     
